@@ -4,10 +4,9 @@
  * MIT Licensed
  */
 
-const greetings = () => {
-  return 'Hello from neptunus!'
-}
 
-export {
-  greetings
+export default class neptunus {
+  greetings() {
+    return 'Hello from neptunus!'
+  }
 }

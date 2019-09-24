@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Make your GPX files match trails easily.",
   "main": "lib/index.js",
+  "types": "lib/*.d.ts",
   "scripts": {
     "build": "tsc --listEmittedFiles",
     "lint": "eslint src/index.ts src/**/*.ts",

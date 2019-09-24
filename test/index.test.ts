@@ -4,11 +4,14 @@
  * MIT Licensed
  */
 
-import { greetings } from '../'
+import neptunus from '../lib/index'
 
-test('greetings', () => {
+test('should be polite', () => {
+  // initial
+  const instance = new neptunus()
+
   // when
-  const output = greetings()
+  const output = instance.greetings()
 
   // then
   expect(output).toBe('Hello from neptunus!')
