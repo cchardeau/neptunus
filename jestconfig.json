@@ -1,8 +1,12 @@
 {
+  "collectCoverage": true,
   "transform": {
     "^.+\\.tsx?$": "ts-jest"
   },
-  "testRegex": "(/test/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+  "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$",
+  "testPathIgnorePatterns": [
+    "lib/.*/.*"
+  ],
   "moduleFileExtensions": [
     "ts",
     "tsx",
