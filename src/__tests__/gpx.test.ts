@@ -44,4 +44,17 @@ describe('parse', () => {
     expect(output).toBeInstanceOf(Object)
     expect(output.gpx).toBeDefined()
   })
+
+  test('should throw error with invalid file content', async () => {
+    // initial
+    const instance = new GPX()
+    const file = 'invalid'
+
+    // when - then
+    try {
+      await instance.parse(file)
+    } catch (err) {
+      expect(err.message).toBe('Non-whitespace before first tag.\nLine: 0\nColumn: 1\nChar: i')
+    }
+  })
 })
