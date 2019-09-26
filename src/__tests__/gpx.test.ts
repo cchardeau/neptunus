@@ -9,10 +9,10 @@ import GPX from '../gpx'
 describe('open', () => {
   test('should open file', () => {
     // initial
-    const instance = new GPX()
+    const gpx = new GPX()
 
     // when
-    const output = instance.open('./env/thabor.gpx')
+    const output = gpx.open('./env/thabor.gpx')
 
     // then
     expect(output).toHaveLength(292142)
@@ -20,11 +20,11 @@ describe('open', () => {
 
   test('should throw error when file is missing', () => {
     // initial
-    const instance = new GPX()
+    const gpx = new GPX()
 
     // when - then
     try {
-      instance.open('./env/thisfiledoesnotexist.gpx')
+      gpx.open('./env/thisfiledoesnotexist.gpx')
     } catch (err) {
       expect(err.message).toBe('ENOENT: no such file or directory, open \'./env/thisfiledoesnotexist.gpx\'')
     }
@@ -34,11 +34,11 @@ describe('open', () => {
 describe('parse', () => {
   test('should return parsed content', async () => {
     // initial
-    const instance = new GPX()
-    const file = instance.open('./env/thabor.gpx')
+    const gpx = new GPX()
+    const file = gpx.open('./env/thabor.gpx')
 
     // when
-    const output = await instance.parse(file)
+    const output = await gpx.parse(file)
 
     // then
     expect(output).toBeInstanceOf(Object)
@@ -47,12 +47,12 @@ describe('parse', () => {
 
   test('should throw error with invalid file content', async () => {
     // initial
-    const instance = new GPX()
+    const gpx = new GPX()
     const file = 'invalid'
 
     // when - then
     try {
-      await instance.parse(file)
+      await gpx.parse(file)
     } catch (err) {
       expect(err.message).toBe('Non-whitespace before first tag.\nLine: 0\nColumn: 1\nChar: i')
     }
