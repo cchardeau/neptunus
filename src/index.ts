@@ -4,6 +4,10 @@
  * MIT Licensed
  */
 
+type NeptunusConfig = {
+  mapboxAccessToken: string
+}
+
 export type Trackpoint = {
   trkId: number
   trksegId: number
@@ -14,26 +18,36 @@ export type Trackpoint = {
 
 import GPX from './gpx'
 import Extractor from './extractor'
+import Mapbox from './mapbox'
 
-export default class neptunus {
+export default class Neptunus {
+  config: NeptunusConfig
+
+  constructor (config: NeptunusConfig) {
+    this.config = config
+  }
+
   greetings() {
     return 'Hello from neptunus!'
   }
 
-  async match(path: string) {
+  async match(file: string) {
     const gpx = new GPX()
     const extractor = new Extractor()
-
-    // open file
-    const file = gpx.open(path)
+    const mapbox = new Mapbox(this.config.mapboxAccessToken)
 
     // parse file content
-    const content = gpx.parse(file)
+    const content = await gpx.parse(file)
 
     // extract trackpoints from file content
     const trackpoints = extractor.extract(content)
 
     // get mapped trackpoints
-    console.log(trackpoints)
+    const mappedTrackpoints = await mapbox.match(trackpoints)
+
+    // return gpx file with matched trackpoints
+    console.log(mappedTrackpoints)
+
+    return undefined
   }
 }
