@@ -6,10 +6,11 @@
 
 import { readFileSync } from 'fs'
 import axios from 'axios'
-jest.mock('axios')
-const mockAxios = axios as jest.Mocked<typeof axios>
 
 import Neptunus from '../index'
+
+jest.mock('axios')
+const mockAxios = axios as jest.Mocked<typeof axios>
 
 describe('greetings', () => {
   test('should be polite', () => {
@@ -37,15 +38,18 @@ describe('match', () => {
         tracepoints: [
           { location: [6.578242, 45.107102] },
           { location: [6.578229, 45.107104] },
-          { location: [6.578217, 45.107106] }]
+          { location: [6.578217, 45.107106] }
+        ]
       }
     })
-
 
     // when
     const output = await neptunus.match(file)
 
     // then
-    expect(output).toBeUndefined()
+    expect(output).toBeDefined()
+
+    // clean
+    mockAxios.get.mockReset()
   })
 })

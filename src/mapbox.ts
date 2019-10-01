@@ -19,15 +19,11 @@ export default class Mapbox {
 
   toMatchedTrackpoints(chunk: ReadonlyArray<Trackpoint>, tracepoints: any) {
     return tracepoints.map((tracepoint: any, index: number) => {
-      if (tracepoint) {
-        return {
-          ...chunk[index],
-          latitude: tracepoint.location[0],
-          longitude: tracepoint.location[1]
-        }
+      return {
+        ...chunk[index],
+        longitude: tracepoint ? tracepoint.location[0] : undefined,
+        latitude: tracepoint ?  tracepoint.location[1] : undefined
       }
-
-      return undefined
     })
   }
 
@@ -45,6 +41,6 @@ export default class Mapbox {
       return []
     }))
 
-    return flatten(matchedTrackpoints)
+    return flatten(matchedTrackpoints).filter(Boolean)
   }
 }

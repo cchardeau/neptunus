@@ -20,15 +20,13 @@ describe('match', () => {
       trkptId: 0,
       latitude: '45.1071760',
       longitude: '6.5782590'
-    },
-    {
+    }, {
       trkId: 0,
       trksegId: 0,
       trkptId: 1,
       latitude: '45.1071730',
       longitude: '6.5782450'
-    },
-    {
+    }, {
       trkId: 0,
       trksegId: 0,
       trkptId: 2,
@@ -56,17 +54,24 @@ describe('match', () => {
       trkId: 0,
       trksegId: 0,
       trkptId: 0,
-      latitude: 6.578242,
-      longitude: 45.107102
-    },
-    undefined,
-    {
+      latitude: 45.107102,
+      longitude: 6.578242
+    }, {
+      trkId: 0,
+      trksegId: 0,
+      trkptId: 1,
+      latitude: undefined,
+      longitude: undefined
+    }, {
       trkId: 0,
       trksegId: 0,
       trkptId: 2,
-      latitude: 6.578217,
-      longitude: 45.107106
+      latitude: 45.107106,
+      longitude: 6.578217
     }])
+
+    // clean
+    mockAxios.get.mockReset()
   })
 
   test('should return an empty array if an error is returned by mapbox', async () => {
