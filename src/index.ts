@@ -4,6 +4,11 @@
  * MIT Licensed
  */
 
+import GPX from './gpx'
+import Extractor from './extractor'
+import Mapbox from './mapbox'
+import Welder from './welder'
+
 type NeptunusConfig = {
   mapboxAccessToken: string
 }
@@ -15,10 +20,6 @@ export type Trackpoint = {
   latitude: string
   longitude: string
 }
-
-import GPX from './gpx'
-import Extractor from './extractor'
-import Mapbox from './mapbox'
 
 export default class Neptunus {
   config: NeptunusConfig
@@ -35,6 +36,7 @@ export default class Neptunus {
     const gpx = new GPX()
     const extractor = new Extractor()
     const mapbox = new Mapbox(this.config.mapboxAccessToken)
+    const welder = new Welder()
 
     // parse file content
     const content = await gpx.parse(file)
@@ -46,8 +48,6 @@ export default class Neptunus {
     const mappedTrackpoints = await mapbox.match(trackpoints)
 
     // return gpx file with matched trackpoints
-    console.log(mappedTrackpoints)
-
-    return undefined
+    return welder.weld(content, mappedTrackpoints)
   }
 }
