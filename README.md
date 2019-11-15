@@ -32,10 +32,13 @@ You have to create a new instance of neptunus with a [mapbox](https://account.ma
 const instance = neptunus.create({ mapboxToken: 'YOUR_MAPBOX_TOKEN_HERE' })
 ```
 
-##### neptunus.match(path)
+### neptunus.match(path)
+
+Then, open a GPX file and pass it to neptunus.
 
 ```js
-const output = instance.match('https://mydomain.com/file.gpx')
+const file = readFileSync('./env/thabor.gpx', 'utf-8')
+const output = instance.match(file)
 ```
 
 ## Promises
