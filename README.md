@@ -10,12 +10,6 @@ Using npm:
 $ npm install neptunus
 ```
 
-Using bower:
-
-```bash
-$ bower install neptunus
-```
-
 Using yarn:
 
 ```bash
@@ -23,6 +17,20 @@ $ yarn add neptunus
 ```
 
 ## Example
+
+### Import the module
+
+You could import the module using import syntax.
+
+```js
+import * as neptunus from 'neptunus'
+```
+
+Or using require syntax.
+
+```js
+const neptunus = require('neptunus')
+```
 
 ### Creating an instance
 
@@ -38,7 +46,7 @@ Then, open a GPX file and pass it to neptunus.
 
 ```js
 const file = readFileSync('./env/thabor.gpx', 'utf-8')
-const output = instance.match(file)
+const output = await instance.match(file)
 ```
 
 ## Promises
