@@ -29,7 +29,7 @@ describe('match', () => {
   test('should return a gpx file with matched trackpoints', async () => {
     // initial
     const neptunus = new Neptunus({ mapboxAccessToken: 'mapboxAccessToken' })
-    const file = readFileSync('./env/thabor.gpx', 'utf-8')
+    const file = readFileSync('./assets/thabor.gpx', 'utf-8')
 
     // mock
     mockAxios.get.mockResolvedValue({

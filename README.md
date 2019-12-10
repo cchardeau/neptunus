@@ -45,7 +45,7 @@ const instance = neptunus.create({ mapboxAccessToken: 'YOUR_MAPBOX_TOKEN_HERE' }
 Then, open a GPX file and pass it to neptunus as a string.
 
 ```js
-const file = readFileSync('./env/thabor.gpx', 'utf-8')
+const file = readFileSync('./assets/thabor.gpx', 'utf-8')
 const output = await instance.match(file.toString())
 ```
 

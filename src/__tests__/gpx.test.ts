@@ -11,7 +11,7 @@ describe('parse', () => {
   test('should return parsed content', async () => {
     // initial
     const gpx = new GPX()
-    const file = readFileSync('./env/thabor.gpx', 'utf-8')
+    const file = readFileSync('./assets/thabor.gpx', 'utf-8')
 
     // when
     const output = await gpx.parse(file)
