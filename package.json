@@ -20,6 +20,7 @@
   "bugs": {
     "url": "https://github.com/cchardeau/neptunus/issues"
   },
+  "keywords": ["gpx", "map", "matching", "mapbox"],
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.18",
