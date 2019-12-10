@@ -1,6 +1,6 @@
 {
   "name": "neptunus",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Make your GPX files match trails easily.",
   "main": "lib/index.js",
   "typings": "lib/index",
@@ -20,7 +20,12 @@
   "bugs": {
     "url": "https://github.com/cchardeau/neptunus/issues"
   },
-  "keywords": ["gpx", "map", "matching", "mapbox"],
+  "keywords": [
+    "gpx",
+    "map",
+    "matching",
+    "mapbox"
+  ],
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.18",
