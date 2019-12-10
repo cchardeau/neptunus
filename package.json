@@ -1,6 +1,6 @@
 {
   "name": "neptunus",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Make your GPX files match trails easily.",
   "main": "lib/index.js",
   "typings": "lib/index",
