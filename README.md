@@ -16,20 +16,20 @@ Using yarn:
 $ yarn add neptunus
 ```
 
-## Example
+## Launching
 
 ### Import the module
 
 You could import the module using import syntax.
 
 ```js
-import * as neptunus from 'neptunus'
+import Neptunus from 'neptunus'
 ```
 
 Or using require syntax.
 
 ```js
-const neptunus = require('neptunus')
+const Neptunus = require('neptunus').default
 ```
 
 ### Creating an instance
@@ -37,15 +37,15 @@ const neptunus = require('neptunus')
 You have to create a new instance of neptunus with a [mapbox](https://account.mapbox.com/access-tokens) access token.
 
 ```js
-const instance = neptunus.create({ mapboxAccessToken: 'YOUR_MAPBOX_TOKEN_HERE' })
+const instance = new Neptunus({ mapboxAccessToken: 'YOUR_MAPBOX_TOKEN_HERE' })
 ```
 
-### neptunus.match(path)
+### Neptunus.match(path)
 
 Then, open a GPX file and pass it to neptunus as a string.
 
 ```js
-const file = readFileSync('./assets/thabor.gpx', 'utf-8')
+const file = await readFile('./assets/thabor.gpx', 'utf-8')
 const output = await instance.match(file.toString())
 ```
 
