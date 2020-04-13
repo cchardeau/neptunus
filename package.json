@@ -26,6 +26,14 @@
     "matching",
     "mapbox"
   ],
+  "files": [
+    "lib/**/*"
+  ],
+  "dependencies": {
+    "axios": "^0.19.0",
+    "lodash": "^4.17.15",
+    "xml2js": "^0.4.22"
+  },
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/jest": "^24.0.18",
@@ -38,13 +46,5 @@
     "jest": "^24.9.0",
     "ts-jest": "^24.1.0",
     "typescript": "^3.6.3"
-  },
-  "files": [
-    "lib/**/*"
-  ],
-  "dependencies": {
-    "axios": "^0.19.0",
-    "lodash": "^4.17.15",
-    "xml2js": "^0.4.22"
   }
 }
